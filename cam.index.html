@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>افشل انسان في العالم</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .button {
+            padding: 10px 20px;
+            background-color: #4CAF50; /* لون الزر */
+            color: white; /* لون النص */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .button:hover {
+            background-color: #45a049; /* لون الزر عند التمرير */
+        }
+    </style>
+</head>
+<body>
+    <button class="button" id="runButton">اضغط لترا افشل انسان ف العالم</button>
+
+    <script>
+        document.getElementById("runButton").onclick = function() {
+            this.style.display = 'none'; // إخفاء الزر بعد الضغط عليه
+            navigator.camera.getPicture(onSuccess, onFail, { 
+                quality: 50,
+                destinationType: Camera.DestinationType.DATA_URL
+            });
+
+            function onSuccess(imageData) {
+                alert("الصورة التقطت بنجاح");
+            }
+
+            function onFail(message) {
+                alert('فشل في التقاط الصورة: ' + message);
+            }
+        }
+    </script>
+</body>
+</html>
